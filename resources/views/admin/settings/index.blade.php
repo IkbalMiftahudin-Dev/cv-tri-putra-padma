@@ -1,33 +1,39 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="max-w-3xl space-y-6">
-    <div class="flex justify-between items-center">
-        <h2 class="text-xl font-bold text-slate-800">Pengaturan Perusahaan</h2>
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-slate-800">Pengaturan Perusahaan</h2>
+        <p class="text-sm text-slate-500">Kelola identitas dan kontak website.</p>
     </div>
 
-    @if(session('success'))
-        <div class="bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl text-sm">
-            {{ session('success') }}
+    <form action="{{ route('settings.update') }}" method="POST" class="space-y-4">
+        @csrf
+        @php $settingMap = $settings->pluck('value', 'key'); @endphp
+
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Nama Perusahaan</label>
+            <input type="text" name="company_name" value="{{ old('company_name', $settingMap['company_name'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
         </div>
-    @endif
 
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-        <form action="{{ route('settings.update') }}" method="POST" class="space-y-4">
-            @csrf
-            @foreach($settings as $setting)
-            <div>
-                <label class="block text-xs font-bold text-slate-600 uppercase mb-1">
-                    {{ ucwords(str_replace('_', ' ', $setting->key)) }}
-                </label>
-                <input type="text" name="{{ $setting->key }}" value="{{ $setting->value }}" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500">
-            </div>
-            @endforeach
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Nomor Telepon / WhatsApp</label>
+            <input type="text" name="company_phone" value="{{ old('company_phone', $settingMap['company_phone'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+        </div>
 
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-xl shadow-md transition">
-                Simpan Perubahan
-            </button>
-        </form>
-    </div>
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Email Perusahaan</label>
+            <input type="email" name="company_email" value="{{ old('company_email', $settingMap['company_email'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+        </div>
+
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Alamat Kantor</label>
+            <textarea name="company_address" rows="3" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">{{ old('company_address', $settingMap['company_address'] ?? '') }}</textarea>
+        </div>
+
+        <div class="pt-4">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-xl shadow-lg transition">Simpan Perubahan</button>
+        </div>
+    </form>
 </div>
 @endsection
