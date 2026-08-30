@@ -11,6 +11,9 @@ use App\Http\Controllers\CompanySettingController;
 // Halaman Utama Publik
 Route::get('/', [HomeController::class, 'index']);
 
+// Endpoint Publik untuk Kirim Testimoni Klien
+Route::post('/testimonials/public', [TestimonialController::class, 'publicStore'])->name('testimonials.public.store');
+
 // Route Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.post');

@@ -56,4 +56,17 @@ class TestimonialController extends Controller
         $testimonial->delete();
         return redirect()->back()->with('success', 'Testimoni berhasil dihapus.');
     }
+
+    public function publicStore(Request $request): RedirectResponse
+{
+    $validated = $request->validate([
+        'client_name' => 'required|string|max:255',
+        'company_origin' => 'nullable|string|max:255',
+        'review' => 'required|string|max:500',
+        'rating' => 'required|integer|min:1|max:5',
+    ]);
+
+    Testimonial::create($validated);
+    return redirect()->back()->with('success_testimonial', 'Terima kasih! Ulasan Anda berhasil dikirim.');
+}
 }
