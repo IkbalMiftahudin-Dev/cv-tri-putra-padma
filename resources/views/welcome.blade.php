@@ -553,11 +553,33 @@
         }).addTo(map);
 
         const projects = @json($projects ?? []);
-        if (Array.isArray(projects) && projects.length > 0) {
+
+        if (Array.isArray(projects)) {
             projects.forEach(project => {
                 if(project.latitude && project.longitude) {
+                    // Menggunakan 'project.title' sesuai kolom migration database kamu
+                    let projectName = project.title || 'Proyek Tanpa Nama';
+                    let projectLocation = project.location || '';
+                    
+                    // Logika pengecekan gambar (jika disimpan berupa path storage atau URL lengkap)
+                    let projectImage = project.image ? 
+                        (project.image.startsWith('http') ? project.image : `/storage/${project.image}`) : 
+                        null;
+
+                    let imageHtml = projectImage ? 
+                        `<div style="margin-bottom:6px;"><img src="${projectImage}" style="width:100%; height:90px; object-fit:cover; border-radius:6px;" alt="${projectName}"></div>` : 
+                        '';
+
+                    let popupContent = `
+                        <div style="padding:2px; width:140px;">
+                            ${imageHtml}
+                            <b style="font-size:11px; color:#1e293b; display:block; line-height:1.2;">${projectName}</b>
+                            <span style="font-size:10px; color:#64748b;">${projectLocation}</span>
+                        </div>
+                    `;
+
                     L.marker([project.latitude, project.longitude]).addTo(map)
-                        .bindPopup(`<div style="padding: 4px;"><b style="font-size: 12px; color: #0f172a;">${project.name}</b><br><span style="font-size: 10px; color: #64748b;">${project.location ?? ''}</span></div>`);
+                        .bindPopup(popupContent);
                 }
             });
         }
