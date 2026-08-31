@@ -201,66 +201,71 @@
 
     <!-- BENTO GRID LAYANAN -->
     <section id="layanan" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-20 mb-16 sm:mb-24">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/70 flex flex-col justify-between">
-                <div>
-                    <div class="inline-flex items-center px-3.5 py-1.5 bg-cyan-50 text-cyan-700 rounded-xl text-xs font-bold mb-4 border border-cyan-100">
-                        <i class="fa-solid fa-award mr-1.5 text-cyan-500"></i> Keunggulan Utama
-                    </div>
-                    <h3 class="font-black text-slate-900 text-xl sm:text-2xl mb-6 tracking-tight">Mengapa Memilih Kami?</h3>
-                    <ul class="space-y-3.5 text-xs sm:text-sm font-semibold text-slate-700">
-                        <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
-                            <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Teknisi Bersertifikat Resmi
-                        </li>
-                        <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
-                            <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Garansi Kebocoran 1 Tahun
-                        </li>
-                        <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
-                            <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Pengerjaan Cepat & Tepat Waktu
-                        </li>
-                        <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
-                            <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Material Standar SNI
-                        </li>
-                    </ul>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/70 flex flex-col justify-between">
+            <div>
+                <div class="inline-flex items-center px-3.5 py-1.5 bg-cyan-50 text-cyan-700 rounded-xl text-xs font-bold mb-4 border border-cyan-100">
+                    <i class="fa-solid fa-award mr-1.5 text-cyan-500"></i> Keunggulan Utama
                 </div>
+                <h3 class="font-black text-slate-900 text-xl sm:text-2xl mb-6 tracking-tight">Mengapa Memilih Kami?</h3>
+                <ul class="space-y-3.5 text-xs sm:text-sm font-semibold text-slate-700">
+                    <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Teknisi Bersertifikat Resmi
+                    </li>
+                    <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Garansi Kebocoran 1 Tahun
+                    </li>
+                    <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Pengerjaan Cepat & Tepat Waktu
+                    </li>
+                    <li class="flex items-center bg-slate-50/80 p-3.5 rounded-2xl border border-slate-100">
+                        <i class="fa-solid fa-circle-check text-cyan-500 mr-3 text-lg flex-shrink-0"></i> Material Standar SNI
+                    </li>
+                </ul>
             </div>
+        </div>
 
-            <div class="lg:col-span-8 bg-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/70 flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
-                        <div>
-                            <span class="text-cyan-600 text-xs font-bold uppercase tracking-wider">Keahlian Kami</span>
-                            <h3 class="font-black text-slate-900 text-xl sm:text-2xl tracking-tight">Layanan Utama</h3>
-                        </div>
-                        <div class="w-full sm:w-auto">
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-search text-xs"></i>
-                                </span>
-                                <input type="text" id="service-search" placeholder="Cari layanan..." class="w-full sm:w-56 pl-9 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-cyan-500 transition shadow-inner">
-                            </div>
+        <div class="lg:col-span-8 bg-white p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/70 flex flex-col justify-between">
+            <div>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+                    <div>
+                        <span class="text-cyan-600 text-xs font-bold uppercase tracking-wider">Keahlian Kami</span>
+                        <h3 class="font-black text-slate-900 text-xl sm:text-2xl tracking-tight">Layanan Utama</h3>
+                    </div>
+                    <div class="w-full sm:w-auto">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-solid fa-search text-xs"></i>
+                            </span>
+                            <input type="text" id="service-search" placeholder="Cari dari 50+ layanan..." class="w-full sm:w-64 pl-9 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-cyan-500 transition shadow-inner">
                         </div>
                     </div>
+                </div>
 
-                    <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        @forelse($services as $service)
-                            <div class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex flex-col items-center justify-between" data-name="{{ strtolower($service->name) }}">
-                                <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-xl mb-4 shadow-md shadow-cyan-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
-                                    <i class="{{ $service->icon ?? 'fa-solid fa-water' }}"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-slate-900 mb-1 line-clamp-1">{{ $service->name }}</h4>
-                                    <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">{{ $service->description }}</p>
-                                </div>
+                <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    @forelse($services as $index => $service)
+                        {{-- Menggunakan take(8) untuk tampilan awal agar rapi, sisanya aktif saat user mengetik di kolom pencarian --}}
+                        <div class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex flex-col items-center justify-between {{ $index >= 8 ? 'hidden' : '' }}" data-name="{{ strtolower($service->name) }}">
+                            <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-xl mb-4 shadow-md shadow-cyan-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                                <i class="{{ $service->icon ?? 'fa-solid fa-water' }}"></i>
                             </div>
-                        @empty
-                            <div class="col-span-4 text-center py-12 text-slate-400 text-sm">Belum ada data layanan dari panel admin.</div>
-                        @endforelse
-                    </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 mb-1 line-clamp-1">{{ $service->name }}</h4>
+                                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">{{ $service->description }}</p>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-span-4 text-center py-12 text-slate-400 text-sm">Belum ada data layanan dari panel admin.</div>
+                    @endforelse
+                </div>
+
+                <div id="no-service-found" class="hidden text-center py-8 text-slate-400 text-xs">
+                    Layanan yang kamu cari tidak ditemukan. Coba kata kunci lain, mas bro!
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SEBARAN PROYEK & ALUR KERJA -->
     <section id="sebaran" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
@@ -483,7 +488,10 @@
 
     <!-- Leaflet JS & Script Handlers -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Mobile Menu Toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -501,19 +509,51 @@
             });
         }
 
+        // 2. Realtime Search Layanan (Sinkronisasi limit 8 awal & pencarian dinamis)
         const searchInput = document.getElementById('service-search');
         const serviceCards = document.querySelectorAll('.service-card');
+        const noFoundMsg = document.getElementById('no-service-found');
 
         if(searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const keyword = e.target.value.toLowerCase().trim();
+                let visibleCount = 0;
+
                 serviceCards.forEach(card => {
                     const name = card.getAttribute('data-name');
-                    card.style.display = name.includes(keyword) ? 'flex' : 'none';
+                    if (name.includes(keyword)) {
+                        card.classList.remove('hidden');
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none';
+                    }
                 });
+
+                if (keyword === '') {
+                    serviceCards.forEach((card, index) => {
+                        if (index >= 8) {
+                            card.classList.add('hidden');
+                            card.style.display = 'none';
+                        } else {
+                            card.classList.remove('hidden');
+                            card.style.display = 'flex';
+                        }
+                    });
+                }
+
+                if (noFoundMsg) {
+                    if (visibleCount === 0 && keyword !== '') {
+                        noFoundMsg.classList.remove('hidden');
+                    } else {
+                        noFoundMsg.classList.add('hidden');
+                    }
+                }
             });
         }
 
+        // 3. Testimonial Slider
         const testimonialSlider = document.getElementById('testimonial-slider');
         const btnPrev = document.getElementById('slide-prev');
         const btnNext = document.getElementById('slide-next');
@@ -528,71 +568,77 @@
             });
         }
 
-        const testimonialModal = document.getElementById('testimonial-modal');
-        function openTestimonialModal() {
+        // 4. Testimonial Modal Global Functions
+        window.openTestimonialModal = function() {
+            const testimonialModal = document.getElementById('testimonial-modal');
             if(testimonialModal) {
                 testimonialModal.classList.remove('hidden');
                 testimonialModal.classList.add('flex');
             }
-        }
-        function closeTestimonialModal() {
+        };
+
+        window.closeTestimonialModal = function() {
+            const testimonialModal = document.getElementById('testimonial-modal');
             if(testimonialModal) {
                 testimonialModal.classList.remove('flex');
                 testimonialModal.classList.add('hidden');
             }
+        };
+
+        // 5. Leaflet Map Sebaran Proyek Nasional
+        const mapElement = document.getElementById('indonesia-map');
+        if (mapElement) {
+            const map = L.map('indonesia-map', {
+                dragging: !L.Browser.mobile,
+                tap: !L.Browser.mobile
+            }).setView([-2.548926, 118.014863], 4);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            const projects = @json($projects ?? []);
+
+            if (Array.isArray(projects)) {
+                projects.forEach(project => {
+                    if(project.latitude && project.longitude) {
+                        let projectName = project.title || 'Proyek Tanpa Nama';
+                        let projectLocation = project.location || '';
+                        
+                        let projectImage = project.image ? 
+                            (project.image.startsWith('http') ? project.image : `/storage/${project.image}`) : 
+                            null;
+
+                        let imageHtml = projectImage ? 
+                            `<div style="margin-bottom:6px;"><img src="${projectImage}" style="width:100%; height:90px; object-fit:cover; border-radius:6px;" alt="${projectName}"></div>` : 
+                            '';
+
+                        let popupContent = `
+                            <div style="padding:2px; width:140px;">
+                                ${imageHtml}
+                                <b style="font-size:11px; color:#1e293b; display:block; line-height:1.2;">${projectName}</b>
+                                <span style="font-size:10px; color:#64748b;">${projectLocation}</span>
+                            </div>
+                        `;
+
+                        L.marker([project.latitude, project.longitude]).addTo(map)
+                            .bindPopup(popupContent);
+                    }
+                });
+            }
+
+            const mapContainer = mapElement.parentElement;
+            const mapOverlay = document.getElementById('map-overlay');
+            if(mapContainer && mapOverlay) {
+                mapContainer.addEventListener('click', () => {
+                    map.dragging.enable();
+                    map.scrollWheelZoom.enable();
+                    mapContainer.classList.add('map-active');
+                });
+            }
         }
-
-        const map = L.map('indonesia-map', {
-            dragging: !L.Browser.mobile,
-            tap: !L.Browser.mobile
-        }).setView([-2.548926, 118.014863], 4);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        const projects = @json($projects ?? []);
-
-        if (Array.isArray(projects)) {
-            projects.forEach(project => {
-                if(project.latitude && project.longitude) {
-                    // Menggunakan 'project.title' sesuai kolom migration database kamu
-                    let projectName = project.title || 'Proyek Tanpa Nama';
-                    let projectLocation = project.location || '';
-                    
-                    // Logika pengecekan gambar (jika disimpan berupa path storage atau URL lengkap)
-                    let projectImage = project.image ? 
-                        (project.image.startsWith('http') ? project.image : `/storage/${project.image}`) : 
-                        null;
-
-                    let imageHtml = projectImage ? 
-                        `<div style="margin-bottom:6px;"><img src="${projectImage}" style="width:100%; height:90px; object-fit:cover; border-radius:6px;" alt="${projectName}"></div>` : 
-                        '';
-
-                    let popupContent = `
-                        <div style="padding:2px; width:140px;">
-                            ${imageHtml}
-                            <b style="font-size:11px; color:#1e293b; display:block; line-height:1.2;">${projectName}</b>
-                            <span style="font-size:10px; color:#64748b;">${projectLocation}</span>
-                        </div>
-                    `;
-
-                    L.marker([project.latitude, project.longitude]).addTo(map)
-                        .bindPopup(popupContent);
-                }
-            });
-        }
-
-        const mapContainer = document.getElementById('indonesia-map').parentElement;
-        const mapOverlay = document.getElementById('map-overlay');
-        if(mapContainer && mapOverlay) {
-            mapContainer.addEventListener('click', () => {
-                map.dragging.enable();
-                map.scrollWheelZoom.enable();
-                mapContainer.classList.add('map-active');
-            });
-        }
-    </script>
+    });
+</script>
 </body>
 </html>

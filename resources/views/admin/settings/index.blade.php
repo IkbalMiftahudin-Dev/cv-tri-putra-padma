@@ -17,18 +17,28 @@
         </div>
 
         <div>
-            <label class="block text-slate-700 text-sm font-semibold mb-2">Nomor Telepon / WhatsApp</label>
-            <input type="text" name="company_phone" value="{{ old('company_phone', $settingMap['company_phone'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Tagline / Slogan</label>
+            <input type="text" name="tagline" value="{{ old('tagline', $settingMap['tagline'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+        </div>
+
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Nomor Telepon</label>
+            <input type="text" name="phone" value="{{ old('phone', $settingMap['phone'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+        </div>
+
+        <div>
+            <label class="block text-slate-700 text-sm font-semibold mb-2">Nomor WhatsApp</label>
+            <input type="text" name="whatsapp" value="{{ old('whatsapp', $settingMap['whatsapp'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
         </div>
 
         <div>
             <label class="block text-slate-700 text-sm font-semibold mb-2">Email Perusahaan</label>
-            <input type="email" name="company_email" value="{{ old('company_email', $settingMap['company_email'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
+            <input type="email" name="email" value="{{ old('email', $settingMap['email'] ?? '') }}" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">
         </div>
 
         <div>
             <label class="block text-slate-700 text-sm font-semibold mb-2">Alamat Kantor</label>
-            <textarea name="company_address" rows="3" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">{{ old('company_address', $settingMap['company_address'] ?? '') }}</textarea>
+            <textarea name="address" rows="3" class="w-full border border-slate-300 rounded-xl py-2.5 px-4 text-slate-700">{{ old('address', $settingMap['address'] ?? '') }}</textarea>
         </div>
 
         <div class="pt-4">
