@@ -103,14 +103,17 @@
                 </div>
             </div>
 
-            <!-- Desktop & Tablet Nav -->
             <nav class="hidden lg:flex items-center space-x-8 font-semibold text-sm text-slate-600">
-                <a href="#layanan" class="hover:text-cyan-600 transition">Layanan</a>
-                <a href="#sebaran" class="hover:text-cyan-600 transition">Sebaran Proyek</a>
-                <a href="#alur" class="hover:text-cyan-600 transition">Alur Kerja</a>
-                <a href="#testimoni" class="hover:text-cyan-600 transition">Testimoni</a>
-                <a href="#kontak" class="hover:text-cyan-600 transition">Kontak</a>
-            </nav>
+            <button onclick="openFounderModal()" class="hover:text-cyan-600 transition cursor-pointer bg-transparent border-none font-semibold text-sm text-slate-600">
+                Tentang Kami
+            </button>
+            
+            <a href="#layanan" class="hover:text-cyan-600 transition">Layanan</a>
+            <a href="#sebaran" class="hover:text-cyan-600 transition">Sebaran Proyek</a>
+            <a href="#alur" class="hover:text-cyan-600 transition">Alur Kerja</a>
+            <a href="#testimoni" class="hover:text-cyan-600 transition">Testimoni</a>
+            <a href="#kontak" class="hover:text-cyan-600 transition">Kontak</a>
+        </nav>
 
             <div class="hidden lg:flex items-center space-x-3">
                 <a href="#kontak" class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-cyan-600/25 text-sm transition transform hover:-translate-y-0.5 flex items-center space-x-2">
@@ -125,18 +128,18 @@
             </button>
         </div>
 
-        <!-- Mobile & Tablet Menu Dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-2xl transition-all">
-            <a href="#layanan" class="mobile-link block font-semibold text-slate-700 hover:text-cyan-600 transition py-1">Layanan</a>
-            <a href="#sebaran" class="mobile-link block font-semibold text-slate-700 hover:text-cyan-600 transition py-1">Sebaran Proyek</a>
-            <a href="#alur" class="mobile-link block font-semibold text-slate-700 hover:text-cyan-600 transition py-1">Alur Kerja</a>
-            <a href="#testimoni" class="mobile-link block font-semibold text-slate-700 hover:text-cyan-600 transition py-1">Testimoni</a>
-            <a href="#kontak" class="mobile-link block font-semibold text-slate-700 hover:text-cyan-600 transition py-1">Kontak</a>
-            <div class="pt-3 border-t border-slate-100 flex flex-col space-y-3">
-                <a href="{{ route('login') }}" class="text-center font-medium text-slate-700 bg-slate-100 py-3 rounded-xl border border-slate-200 text-sm">Login Admin</a>
-                <a href="#kontak" class="mobile-link bg-cyan-600 text-white text-center font-bold py-3 rounded-xl shadow-md text-sm">Mulai Konsultasi</a>
-            </div>
-        </div>
+<div id="mobile-menu" class="hidden lg:hidden flex flex-col space-y-4 p-6 bg-white border-b border-slate-200 shadow-lg">
+    
+    <button onclick="openFounderModal()" class="text-left font-semibold text-sm text-slate-600 hover:text-cyan-600 transition cursor-pointer">
+        Tentang Kami
+    </button>
+
+    <a href="#layanan" onclick="closeMobileMenu()" class="font-semibold text-sm text-slate-600 hover:text-cyan-600 transition">Layanan</a>
+    <a href="#sebaran" onclick="closeMobileMenu()" class="font-semibold text-sm text-slate-600 hover:text-cyan-600 transition">Sebaran Proyek</a>
+    <a href="#alur" onclick="closeMobileMenu()" class="font-semibold text-sm text-slate-600 hover:text-cyan-600 transition">Alur Kerja</a>
+    <a href="#testimoni" onclick="closeMobileMenu()" class="font-semibold text-sm text-slate-600 hover:text-cyan-600 transition">Testimoni</a>
+    <a href="#kontak" onclick="closeMobileMenu()" class="font-semibold text-sm text-slate-600 hover:text-cyan-600 transition">Kontak</a>
+</div>
     </header>
 
     <!-- HERO SECTION -->
@@ -242,22 +245,31 @@
                     </div>
                 </div>
 
-                <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    @forelse($services as $index => $service)
-                        {{-- Menggunakan take(8) untuk tampilan awal agar rapi, sisanya aktif saat user mengetik di kolom pencarian --}}
-                        <div class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex flex-col items-center justify-between {{ $index >= 8 ? 'hidden' : '' }}" data-name="{{ strtolower($service->name) }}">
-                            <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-xl mb-4 shadow-md shadow-cyan-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
-                                <i class="{{ $service->icon ?? 'fa-solid fa-water' }}"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-slate-900 mb-1 line-clamp-1">{{ $service->name }}</h4>
-                                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">{{ $service->description }}</p>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="col-span-4 text-center py-12 text-slate-400 text-sm">Belum ada data layanan dari panel admin.</div>
-                    @endforelse
-                </div>
+               <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    @forelse($services as $index => $service)
+        {{-- Card Layanan dibuat bisa diklik untuk memunculkan modal detail --}}
+        <div onclick="openServiceModal('{{ addslashes($service->name) }}', '{{ addslashes($service->description) }}', '{{ $service->icon ?? 'fa-solid fa-water' }}')" 
+             class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex flex-col items-center justify-between cursor-pointer {{ $index >= 8 ? 'hidden' : '' }}" 
+             data-name="{{ strtolower($service->name) }}">
+            
+            <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-xl mb-4 shadow-md shadow-cyan-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                <i class="{{ $service->icon ?? 'fa-solid fa-water' }}"></i>
+            </div>
+            
+            <div class="w-full">
+                <h4 class="font-bold text-sm text-slate-900 mb-1 line-clamp-1 group-hover:text-cyan-600 transition">{{ $service->name }}</h4>
+                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">{{ $service->description }}</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 w-full flex items-center justify-center text-[11px] font-semibold text-cyan-600">
+                <span>Lihat Detail</span>
+                <i class="fa-solid fa-arrow-right ml-1.5 group-hover:translate-x-1 transition"></i>
+            </div>
+        </div>
+    @empty
+        <div class="col-span-4 text-center py-12 text-slate-400 text-sm">Belum ada data layanan dari panel admin.</div>
+    @endforelse
+</div>
 
                 <div id="no-service-found" class="hidden text-center py-8 text-slate-400 text-xs">
                     Layanan yang kamu cari tidak ditemukan. Coba kata kunci lain, mas bro!
@@ -491,23 +503,68 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // 1. Mobile Menu Toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
+      // 1. Mobile Menu Toggle (Bawaan Asli + Penyesuaian)
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
 
-        if(menuButton && mobileMenu && menuIcon) {
-            menuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                if(mobileMenu.classList.contains('hidden')) {
-                    menuIcon.classList.remove('fa-xmark');
-                    menuIcon.classList.add('fa-bars');
-                } else {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-xmark');
-                }
-            });
+    function closeMobileMenu() {
+        if(mobileMenu && menuIcon) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
         }
+    }
+
+    if(menuButton && mobileMenu && menuIcon) {
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+    }
+
+    // 2. Popup Founder (Tentang Kami)
+    function openFounderModal() {
+        closeMobileMenu(); // Tutup menu mobile dulu kalau sedang terbuka
+        
+        const modal = document.getElementById('founderModal');
+        const content = document.getElementById('modalContent');
+        
+        if (modal && content) {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+            
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+    }
+
+    function closeFounderModal() {
+        const modal = document.getElementById('founderModal');
+        const content = document.getElementById('modalContent');
+        
+        if (modal && content) {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
+    }
+
+    // Tutup modal jika user klik area luar
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('founderModal');
+        if (e.target === modal) {
+            closeFounderModal();
+        }
+    });
 
         // 2. Realtime Search Layanan (Sinkronisasi limit 8 awal & pencarian dinamis)
         const searchInput = document.getElementById('service-search');
@@ -637,6 +694,175 @@
                     mapContainer.classList.add('map-active');
                 });
             }
+        }
+    });
+</script>
+<!-- Modal Popup Profil Pendiri -->
+<div id="founderModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300">
+    
+    <!-- Kotak Konten Modal -->
+    <div id="modalContent" class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-2xl w-full overflow-hidden transform scale-95 transition-transform duration-300 relative">
+        
+        <!-- Tombol Close (X) di Pojok Kanan Atas -->
+        <button onclick="closeFounderModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition cursor-pointer">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 items-stretch">
+            
+            <!-- Foto Pendiri di Modal -->
+            <div class="sm:col-span-5 relative bg-slate-900 min-h-[250px] sm:min-h-full">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Bpk. Aceng Sutisna" class="absolute inset-0 w-full h-full object-cover object-top">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent sm:hidden"></div>
+                <div class="absolute bottom-4 left-4 text-white sm:hidden">
+                    <h3 class="font-bold text-lg">Bpk. Aceng Sutisna</h3>
+                    <p class="text-xs text-slate-300">Founder CV. Tri Putra Padma</p>
+                </div>
+            </div>
+
+            <!-- Detail Teks Profil di Modal -->
+            <div class="sm:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <span class="inline-block text-blue-600 font-bold text-[10px] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-md mb-2">
+                        Pimpinan & Visi Perusahaan
+                    </span>
+                    <h3 class="hidden sm:block text-xl font-bold text-slate-900">Bpk.   Aceng Sutisna</h3>
+                    <p class="hidden sm:block text-xs text-blue-600 font-medium mb-4">Founder & Direktur Utama</p>
+
+                    <blockquote class="text-slate-600 text-xs sm:text-sm leading-relaxed italic border-l-2 border-blue-600 pl-3 my-2">
+                        "Komitmen kami adalah menghadirkan solusi utilitas bangunan dan perpipaan berstandar tinggi yang memberikan ketenangan jangka panjang bagi setiap klien."
+                    </blockquote>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-100 grid grid-cols-2 gap-4 text-xs">
+                    <div>
+                        <span class="block text-slate-400 font-semibold uppercase">Pengalaman</span>
+                        <span class="text-slate-800 font-bold">15+ Tahun</span>
+                    </div>
+                    <div>
+                        <span class="block text-slate-400 font-semibold uppercase">Spesialisasi</span>
+                        <span class="text-slate-800 font-bold">Mekanikal & Pipa</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Script JavaScript untuk Kontrol Popup -->
+<script>
+    function openFounderModal() {
+        const modal = document.getElementById('founderModal');
+        const content = document.getElementById('modalContent');
+        
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+    }
+
+    function closeFounderModal() {
+        const modal = document.getElementById('founderModal');
+        const content = document.getElementById('modalContent');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+    }
+
+    // Tutup popup jika user klik di luar kotak modal
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('founderModal');
+        if (e.target === modal) {
+            closeFounderModal();
+        }
+    });
+</script>
+
+<!-- Modal Popup Detail Layanan -->
+<div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300">
+    
+    <!-- Kotak Konten Modal -->
+    <div id="serviceModalContent" class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6 sm:p-8 transform scale-95 transition-transform duration-300 relative">
+        
+        <!-- Tombol Close (X) -->
+        <button onclick="closeServiceModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full flex items-center justify-center transition cursor-pointer">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <!-- Icon & Judul Layanan di Modal -->
+        <div class="flex items-center space-x-4 mb-5">
+            <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl shadow-md shrink-0">
+                <i id="modalServiceIcon" class="fa-solid fa-water"></i>
+            </div>
+            <div>
+                <span class="text-[10px] font-bold text-cyan-600 uppercase tracking-wider bg-cyan-50 px-2.5 py-1 rounded-md">Detail Layanan</span>
+                <h3 id="modalServiceTitle" class="text-xl font-bold text-slate-900 mt-1">Nama Layanan</h3>
+            </div>
+        </div>
+
+        <!-- Deskripsi Lengkap (Tidak Terpotong) -->
+        <div class="max-h-[60vh] overflow-y-auto pr-1">
+            <p id="modalServiceDesc" class="text-slate-600 text-sm sm:text-base leading-relaxed whitespace-pre-line">
+                Deskripsi lengkap akan muncul di sini...
+            </p>
+        </div>
+
+        <!-- Tombol Aksi Cepat / Hubungi via WhatsApp -->
+        <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between gap-4 flex-wrap">
+            <span class="text-xs text-slate-400">Tertarik dengan layanan ini?</span>
+            <a href="https://wa.me/6283844619720?text=Halo%20CV%20Tri%20Putra%20Padma,%20saya%20tertarik%20dengan%20layanan..." target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition flex items-center shadow-lg shadow-emerald-600/20">
+                <i class="fa-brands fa-whatsapp mr-2 text-base"></i> Konsultasi via WhatsApp
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Fungsi Membuka Modal Layanan
+    function openServiceModal(title, description, iconClass) {
+        const modal = document.getElementById('serviceModal');
+        const content = document.getElementById('serviceModalContent');
+        
+        // Masukkan data dinamis ke dalam elemen modal
+        document.getElementById('modalServiceTitle').innerText = title;
+        document.getElementById('modalServiceDesc').innerText = description;
+        document.getElementById('modalServiceIcon').className = iconClass;
+        
+        // Tampilkan modal dengan animasi halus
+        if (modal && content) {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+            
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+    }
+
+    // Fungsi Menutup Modal Layanan
+    function closeServiceModal() {
+        const modal = document.getElementById('serviceModal');
+        const content = document.getElementById('serviceModalContent');
+        
+        if (modal && content) {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
+    }
+
+    // Tutup modal layanan jika pengguna mengklik area gelap di luar kotak putih
+    window.addEventListener('click', function(e) {
+        const serviceModal = document.getElementById('serviceModal');
+        if (e.target === serviceModal) {
+            closeServiceModal();
         }
     });
 </script>
