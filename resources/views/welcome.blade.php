@@ -245,11 +245,11 @@
                     </div>
                 </div>
 
-               <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
     @forelse($services as $index => $service)
-        {{-- Card Layanan dibuat bisa diklik untuk memunculkan modal detail --}}
+        {{-- Jika indeks ke-3 atau lebih (card ke-4 ke atas), sembunyikan di mobile (hidden), tapi tampilkan di sm/md/lg (sm:flex atau sm:block) --}}
         <div onclick="openServiceModal('{{ addslashes($service->name) }}', '{{ addslashes($service->description) }}', '{{ $service->icon ?? 'fa-solid fa-water' }}')" 
-             class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex flex-col items-center justify-between cursor-pointer {{ $index >= 8 ? 'hidden' : '' }}" 
+             class="service-card bg-gradient-to-b from-slate-50 to-cyan-50/10 border border-slate-200/70 p-5 sm:p-6 rounded-2xl text-center hover:shadow-lg hover:border-cyan-500/40 transition-all group flex-col items-center justify-between cursor-pointer {{ $index >= 3 ? 'hidden sm:flex' : 'flex' }} {{ $index >= 8 ? 'lg:hidden' : '' }}" 
              data-name="{{ strtolower($service->name) }}">
             
             <div class="w-14 h-14 bg-gradient-to-tr from-cyan-600 to-blue-600 text-white rounded-2xl flex items-center justify-center text-xl mb-4 shadow-md shadow-cyan-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
@@ -866,5 +866,6 @@
         }
     });
 </script>
+
 </body>
 </html>
